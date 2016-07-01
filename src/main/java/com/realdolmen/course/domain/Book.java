@@ -1,6 +1,9 @@
 package com.realdolmen.course.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class Book {
@@ -19,6 +22,14 @@ public class Book {
 
     @Enumerated(EnumType.STRING)
     private Genre genre;
+
+    @ManyToMany
+            @JoinTable(name = "author_book",
+            inverseJoinColumns = @JoinColumn(name = "a_id"),
+            joinColumns = @JoinColumn(name="b_id"),
+                    foreignKey = @ForeignKey(name = "book to bookauthor")
+            )
+    List<Author> authors = new ArrayList<>();
 
     /**
      * Used by JPA.
