@@ -27,7 +27,7 @@ public class Book {
             @JoinTable(name = "author_book",
             inverseJoinColumns = @JoinColumn(name = "a_id"),
             joinColumns = @JoinColumn(name="b_id"),
-                    foreignKey = @ForeignKey(name = "book to bookauthor")
+                    foreignKey = @ForeignKey(name = "authors")
             )
     List<Author> authors = new ArrayList<>();
 

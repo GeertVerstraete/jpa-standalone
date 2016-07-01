@@ -7,6 +7,7 @@ import java.util.Collection;
 /**
  * Created by aryastark on 01/07/16.
  */
+@Entity
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,7 +16,7 @@ public class Author {
     String name;
 
     @ManyToMany(mappedBy = "authors")
-//    @JoinTable(name = "book_author")
+//    @JoinTable(name = "book_authors")
     private Collection<Book> books = new ArrayList<>();
 }
 
